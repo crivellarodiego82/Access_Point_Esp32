@@ -1,0 +1,18 @@
+#include <WiFi.h>
+
+const char *ssid = "ESP32_AP"; //Nome rete da creare
+const char *password = "P@ssw0rd"; //Password di rete da creare
+void setup() {
+  Serial.begin(115200);
+  Serial.println();
+  Serial.print("Configuring access point...");
+  /* Se non vuoi creare rete aperta rimuovere "password" */
+  WiFi.softAP(ssid, password);
+
+  IPAddress myIP = WiFi.softAPIP();
+  Serial.print("Indirizzo IP : ");
+  Serial.println(myIP);
+}
+
+void loop() {
+}
